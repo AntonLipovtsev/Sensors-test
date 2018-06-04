@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -140,6 +141,50 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sdFilePrisedStepCounter = new File(sdPath, "Приседания_step_counter");
         sdFilePrisedStepDetect = new File(sdPath, "Приседания_step_detector");
 
+        try {
+            BufferedWriter bw1 = new BufferedWriter(new FileWriter(sdFilePrisedAccel, true));
+            BufferedWriter bw2 = new BufferedWriter(new FileWriter(sdFilePrisedLinearAccel, true));
+            BufferedWriter bw3 = new BufferedWriter(new FileWriter(sdFilePrisedGyroscope, true));
+            BufferedWriter bw4 = new BufferedWriter(new FileWriter(sdFilePrisedProximity, true));
+            BufferedWriter bw5 = new BufferedWriter(new FileWriter(sdFilePrisedMagneticField, true));
+            BufferedWriter bw6 = new BufferedWriter(new FileWriter(sdFilePrisedGravity, true));
+            BufferedWriter bw7 = new BufferedWriter(new FileWriter(sdFilePrisedGameRotationVector, true));
+            BufferedWriter bw8 = new BufferedWriter(new FileWriter(sdFilePrisedLowLatency, true));
+            BufferedWriter bw9 = new BufferedWriter(new FileWriter(sdFilePrisedRotationVector, true));
+            BufferedWriter bw10 = new BufferedWriter(new FileWriter(sdFilePrisedRotationVector, true));
+            BufferedWriter bw11 = new BufferedWriter(new FileWriter(sdFilePrisedSignMotion, true));
+            BufferedWriter bw12 = new BufferedWriter(new FileWriter(sdFilePrisedStepCounter, true));
+            BufferedWriter bw13 = new BufferedWriter(new FileWriter(sdFilePrisedStepDetect, true));
+            bw1.write(Calendar.getInstance().getTime() + "\n");
+            bw2.write(Calendar.getInstance().getTime() + "\n");
+            bw3.write(Calendar.getInstance().getTime() + "\n");
+            bw4.write(Calendar.getInstance().getTime() + "\n");
+            bw5.write(Calendar.getInstance().getTime() + "\n");
+            bw6.write(Calendar.getInstance().getTime() + "\n");
+            bw7.write(Calendar.getInstance().getTime() + "\n");
+            bw8.write(Calendar.getInstance().getTime() + "\n");
+            bw9.write(Calendar.getInstance().getTime() + "\n");
+            bw10.write(Calendar.getInstance().getTime() + "\n");
+            bw11.write(Calendar.getInstance().getTime() + "\n");
+            bw12.write(Calendar.getInstance().getTime() + "\n");
+            bw13.write(Calendar.getInstance().getTime() + "\n");
+            bw1.close();
+            bw2.close();
+            bw3.close();
+            bw4.close();
+            bw5.close();
+            bw6.close();
+            bw7.close();
+            bw8.close();
+            bw9.close();
+            bw10.close();
+            bw11.close();
+            bw12.close();
+            bw13.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         sdFileOtAccel = new File(sdPath, "Отжимания_accelerometer");
         sdFileOtLinearAccel = new File(sdPath, "Отжимания_linear_accelerometer");
         sdFileOtGyroscope = new File(sdPath, "Отжимания_gyroscope");
@@ -246,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -256,7 +301,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -266,7 +311,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -276,7 +321,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -288,7 +333,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedLinearAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -298,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtLinearAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -308,7 +353,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwLinearAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -318,7 +363,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkLinearAccel, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -330,7 +375,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedGyroscope, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -340,7 +385,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtGyroscope, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -350,7 +395,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwGyroscope, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -360,7 +405,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkGyroscope, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -372,7 +417,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedProximity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -382,7 +427,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtProximity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -392,7 +437,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwProximity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -402,7 +447,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkProximity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -414,7 +459,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedMagneticField, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -424,7 +469,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtMagneticField, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -434,7 +479,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwMagneticField, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -444,7 +489,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkMagneticField, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -456,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedGravity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -466,7 +511,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtGravity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -476,7 +521,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwGravity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -486,7 +531,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkGravity, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -498,7 +543,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedGameRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -508,7 +553,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtGameRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -518,7 +563,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwGameRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -528,7 +573,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkGameRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -540,7 +585,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedLowLatency, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -550,7 +595,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtLowLatency, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -560,7 +605,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwLowLatency, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -570,7 +615,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkLowLatency, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -582,7 +627,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -592,7 +637,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -602,7 +647,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -612,7 +657,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -624,7 +669,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -634,7 +679,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -644,7 +689,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -654,7 +699,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkRotationVector, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -666,7 +711,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedSignMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -676,7 +721,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtSignMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -686,7 +731,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwSignMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -696,7 +741,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkSignMotion, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -708,7 +753,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedStepCounter, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -718,7 +763,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtStepCounter, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -728,7 +773,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwStepCounter, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -738,7 +783,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkStepCounter, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -750,7 +795,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedStepDetect, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -760,7 +805,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action2) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtStepDetect, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -770,7 +815,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action3) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwStepDetect, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -780,7 +825,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (action4) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkStepDetect, true));
-                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.write(Arrays.toString(sensorEvent.values) + "\n");
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
