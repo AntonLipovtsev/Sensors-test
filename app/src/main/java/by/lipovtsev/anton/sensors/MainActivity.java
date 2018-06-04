@@ -20,7 +20,14 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private Button btn1;
+    private Button btn2;
+    private Button btn3;
+    private Button btn4;
+
     private boolean action1;
+    private boolean action2;
+    private boolean action3;
+    private boolean action4;
 
     private File sdFilePrisedAccel;
     private File sdFilePrisedLinearAccel;
@@ -35,6 +42,48 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private File sdFilePrisedSignMotion;
     private File sdFilePrisedStepCounter;
     private File sdFilePrisedStepDetect;
+
+    private File sdFileOtAccel;
+    private File sdFileOtLinearAccel;
+    private File sdFileOtGyroscope;
+    private File sdFileOtProximity;
+    private File sdFileOtMagneticField;
+    private File sdFileOtGravity;
+    private File sdFileOtGameRotationVector;
+    private File sdFileOtLowLatency;
+    private File sdFileOtMotion;
+    private File sdFileOtRotationVector;
+    private File sdFileOtSignMotion;
+    private File sdFileOtStepCounter;
+    private File sdFileOtStepDetect;
+
+    private File sdFileTwAccel;
+    private File sdFileTwLinearAccel;
+    private File sdFileTwGyroscope;
+    private File sdFileTwProximity;
+    private File sdFileTwMagneticField;
+    private File sdFileTwGravity;
+    private File sdFileTwGameRotationVector;
+    private File sdFileTwLowLatency;
+    private File sdFileTwMotion;
+    private File sdFileTwRotationVector;
+    private File sdFileTwSignMotion;
+    private File sdFileTwStepCounter;
+    private File sdFileTwStepDetect;
+
+    private File sdFileWalkAccel;
+    private File sdFileWalkLinearAccel;
+    private File sdFileWalkGyroscope;
+    private File sdFileWalkProximity;
+    private File sdFileWalkMagneticField;
+    private File sdFileWalkGravity;
+    private File sdFileWalkGameRotationVector;
+    private File sdFileWalkLowLatency;
+    private File sdFileWalkMotion;
+    private File sdFileWalkRotationVector;
+    private File sdFileWalkSignMotion;
+    private File sdFileWalkStepCounter;
+    private File sdFileWalkStepDetect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +140,48 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sdFilePrisedStepCounter = new File(sdPath, "Приседания_step_counter");
         sdFilePrisedStepDetect = new File(sdPath, "Приседания_step_detector");
 
+        sdFileOtAccel = new File(sdPath, "Отжимания_accelerometer");
+        sdFileOtLinearAccel = new File(sdPath, "Отжимания_linear_accelerometer");
+        sdFileOtGyroscope = new File(sdPath, "Отжимания_gyroscope");
+        sdFileOtProximity = new File(sdPath, "Отжимания_proximity");
+        sdFileOtMagneticField = new File(sdPath, "Отжимания_magnetic_field");
+        sdFileOtGravity = new File(sdPath, "Отжимания_gravity");
+        sdFileOtGameRotationVector = new File(sdPath, "Отжимания_game_rotation_vector");
+        sdFileOtLowLatency = new File(sdPath, "Отжимания_low_latency_offbody_detect");
+        sdFileOtMotion = new File(sdPath, "Отжимания_motion_detect");
+        sdFileOtRotationVector = new File(sdPath, "Отжимания_rotation_vector");
+        sdFileOtSignMotion = new File(sdPath, "Отжимания_significant_motion");
+        sdFileOtStepCounter = new File(sdPath, "Отжимания_step_counter");
+        sdFileOtStepDetect = new File(sdPath, "Отжимания_step_detector");
+
+        sdFileTwAccel = new File(sdPath, "Скручивания_accelerometer");
+        sdFileTwLinearAccel = new File(sdPath, "Скручивания_linear_accelerometer");
+        sdFileTwGyroscope = new File(sdPath, "Скручивания_gyroscope");
+        sdFileTwProximity = new File(sdPath, "Скручивания_proximity");
+        sdFileTwMagneticField = new File(sdPath, "Скручивания_magnetic_field");
+        sdFileTwGravity = new File(sdPath, "Скручивания_gravity");
+        sdFileTwGameRotationVector = new File(sdPath, "Скручивания_game_rotation_vector");
+        sdFileTwLowLatency = new File(sdPath, "Скручивания_low_latency_offbody_detect");
+        sdFileTwMotion = new File(sdPath, "Скручивания_motion_detect");
+        sdFileTwRotationVector = new File(sdPath, "Скручивания_rotation_vector");
+        sdFileTwSignMotion = new File(sdPath, "Скручивания_significant_motion");
+        sdFileTwStepCounter = new File(sdPath, "Скручивания_step_counter");
+        sdFileTwStepDetect = new File(sdPath, "Скручивания_step_detector");
+
+        sdFileWalkAccel = new File(sdPath, "Ходьба_accelerometer");
+        sdFileWalkLinearAccel = new File(sdPath, "Ходьба_linear_accelerometer");
+        sdFileWalkGyroscope = new File(sdPath, "Ходьба_gyroscope");
+        sdFileWalkProximity = new File(sdPath, "Ходьба_proximity");
+        sdFileWalkMagneticField = new File(sdPath, "Ходьба_magnetic_field");
+        sdFileWalkGravity = new File(sdPath, "Ходьба_gravity");
+        sdFileWalkGameRotationVector = new File(sdPath, "Ходьба_game_rotation_vector");
+        sdFileWalkLowLatency = new File(sdPath, "Ходьба_low_latency_offbody_detect");
+        sdFileWalkMotion = new File(sdPath, "Ходьба_motion_detect");
+        sdFileWalkRotationVector = new File(sdPath, "Ходьба_rotation_vector");
+        sdFileWalkSignMotion = new File(sdPath, "Ходьба_significant_motion");
+        sdFileWalkStepCounter = new File(sdPath, "Ходьба_step_counter");
+        sdFileWalkStepDetect = new File(sdPath, "Ходьба_step_detector");
+
         btn1 = findViewById(R.id.btn1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +192,48 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 } else {
                     btn1.setBackgroundColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark));
                     action1 = true;
+                }
+            }
+        });
+
+        btn2 = findViewById(R.id.btn2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (action2) {
+                    btn2.setBackgroundColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
+                    action2 = false;
+                } else {
+                    btn2.setBackgroundColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark));
+                    action2 = true;
+                }
+            }
+        });
+
+        btn3 = findViewById(R.id.btn3);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (action3) {
+                    btn3.setBackgroundColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
+                    action3 = false;
+                } else {
+                    btn3.setBackgroundColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark));
+                    action3 = true;
+                }
+            }
+        });
+
+        btn4 = findViewById(R.id.btn4);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (action4) {
+                    btn4.setBackgroundColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_green_dark));
+                    action4 = false;
+                } else {
+                    btn4.setBackgroundColor(ContextCompat.getColor(MainActivity.this, android.R.color.holo_red_dark));
+                    action4 = true;
                 }
             }
         });
@@ -119,12 +252,72 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtAccel, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwAccel, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkAccel, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION) {
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedLinearAccel, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtLinearAccel, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwLinearAccel, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkLinearAccel, true));
                     bw.write(Arrays.toString(sensorEvent.values));
                     bw.close();
                 } catch (IOException e) {
@@ -143,12 +336,72 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtGyroscope, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwGyroscope, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkGyroscope, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (sensor.getType() == Sensor.TYPE_PROXIMITY) {
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedProximity, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtProximity, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwProximity, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkProximity, true));
                     bw.write(Arrays.toString(sensorEvent.values));
                     bw.close();
                 } catch (IOException e) {
@@ -167,12 +420,72 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtMagneticField, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwMagneticField, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkMagneticField, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (sensor.getType() == Sensor.TYPE_GRAVITY) {
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedGravity, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtGravity, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwGravity, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkGravity, true));
                     bw.write(Arrays.toString(sensorEvent.values));
                     bw.close();
                 } catch (IOException e) {
@@ -191,12 +504,72 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtGameRotationVector, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwGameRotationVector, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkGameRotationVector, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (sensor.getType() == Sensor.TYPE_LOW_LATENCY_OFFBODY_DETECT) {
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedLowLatency, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtLowLatency, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwLowLatency, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkLowLatency, true));
                     bw.write(Arrays.toString(sensorEvent.values));
                     bw.close();
                 } catch (IOException e) {
@@ -215,12 +588,72 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtMotion, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwMotion, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkMotion, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (sensor.getType() == Sensor.TYPE_ROTATION_VECTOR) {
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedRotationVector, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtRotationVector, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwRotationVector, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkRotationVector, true));
                     bw.write(Arrays.toString(sensorEvent.values));
                     bw.close();
                 } catch (IOException e) {
@@ -239,6 +672,36 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtSignMotion, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwSignMotion, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkSignMotion, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
@@ -251,12 +714,72 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtStepCounter, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwStepCounter, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkStepCounter, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
             if (action1) {
                 try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(sdFilePrisedStepDetect, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action2) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileOtStepDetect, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action3) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileTwStepDetect, true));
+                    bw.write(Arrays.toString(sensorEvent.values));
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (action4) {
+                try {
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(sdFileWalkStepDetect, true));
                     bw.write(Arrays.toString(sensorEvent.values));
                     bw.close();
                 } catch (IOException e) {

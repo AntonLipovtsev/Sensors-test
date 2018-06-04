@@ -11,6 +11,37 @@
         android:layout_width="match_parent"
         android:text="Приседания"
         android:background="@android:color/holo_green_dark"
-        android:id="@+id/btn1">
+        android:id="@+id/btn1"
+        android:layout_margin="5dp">
+    </Button>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Отжимания"
+        android:background="@android:color/holo_green_dark"
+        android:id="@+id/btn2"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/btn1">
+    </Button>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Скручивания"
+        android:background="@android:color/holo_green_dark"
+        android:id="@+id/btn3"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/btn2">
+    </Button>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Ходьба"
+        android:background="@android:color/holo_green_dark"
+        android:id="@+id/btn4"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/btn3">
     </Button>
 </RelativeLayout>
