@@ -6,12 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtName"
+        android:hint="Имя"/>
+
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="Приседания"
         android:background="@android:color/holo_green_dark"
         android:id="@+id/btn1"
+        android:layout_below="@+id/edtName"
         android:layout_margin="5dp">
     </Button>
 
@@ -43,5 +50,15 @@
         android:id="@+id/btn4"
         android:layout_margin="5dp"
         android:layout_below="@+id/btn3">
+    </Button>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Планка"
+        android:background="@android:color/holo_green_dark"
+        android:id="@+id/btn5"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/btn4">
     </Button>
 </RelativeLayout>
